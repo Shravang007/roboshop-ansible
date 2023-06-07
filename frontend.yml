@@ -24,18 +24,13 @@
           remote_src: yes
 
 
-      - name: Copy file
+      - name: Copy roboshop file
         ansible.builtin.copy:
           src: roboshop.conf
           dest: /etc/nginx/default.d/roboshop.conf
 
-
-echo -e "${color} Update Frontend Configuration ${nocolor}"
-cp /root/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
-stat_check $?
-
-echo -e "${color} Starting Nginx Server ${nocolor}"
-systemctl enable nginx &>>/tmp/roboshop.log
-systemctl restart nginx &>>/tmp/roboshop.log
-stat_check $?
+      - name: Start Nginx Server
+        ansible.builtin.service:
+          name: nginx
+          state: restarted
 

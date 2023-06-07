@@ -1,0 +1,22 @@
+    -name: Catalogue Server Setup
+    hosts: all
+    become: yes
+    tasks:
+
+      - name: Setup NodeJS repos
+        ansible.builtin.uri:
+          url: -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+      - name: Installing Nginx Server
+        ansible.builtin.yum:
+          name: nodejs
+          state: latest
+
+      curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+#source common.sh
+#
+#component=catalogue
+#
+#nodejs
+#mongodb_schema_setup
+#

@@ -30,39 +30,18 @@
        ansible.builtin.pip:
          name: npm
 
-    app_presetup
-    
-    systemd_setup
-  
-  }
-    
-    systemd_setup() {
-    echo -e "${color}Setup System Service${nocolor}"
-    cp /root/roboshop-shell/${component}.service /etc/systemd/system/${component}.service &>>$log_file
-    sed -i -e "s/roboshop_app_password/$roboshop_app_password/"  /etc/systemd/system/$component.service
-    stat_check $?
-    
-    echo -e "${color} Start ${component} Service${nocolor}"
-    systemctl daemon-reload &>>${log_file}
-    systemctl enable ${component} &>>${log_file}
-    systemctl restart ${component} &>>${log_file}
-    stat_check $?
-  
-  }
+    - name: App Prerequisites
+      ansible.builtin.import_tasks:
+          file: app_presetup.yml
+
+    - name: SystemD setup
+      ansible.builtin.import_tasks:
+          file: systemd_setup.yml
+
     
     mongodb_schema_setup() {
     
-    echo -e "${color}Copy Mongodb Repo File${nocolor}"
-    cp /root/roboshop-shell/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${log_file}
-    stat_check $?
-    
-    echo -e "${color}Install Mongodb Service${nocolor}"
-    yum install mongodb-org-shell -y &>>${log_file}
-    stat_check $?
-    
-    echo -e "${color}Load Schema${nocolor}"
-    mongo --host mongodb-dev.devopspractice73.online <${app_path}/schema/${component}.js &>>${log_file}
-    stat_check $?
+
   
   
   }

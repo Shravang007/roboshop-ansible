@@ -1,0 +1,7 @@
+    -name: Catalogue Server Setup
+    hosts: all
+    become: yes
+    tasks:
+
+#mongodb_schema_setup
+#

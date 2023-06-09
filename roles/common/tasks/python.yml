@@ -1,21 +1,20 @@
- -name: Install Python
+- name: Install Python
+  ansible.builtin.yum:
+    name:
+        - python36
+        - gcc
+        - python3-devel
+    state: installed
 
-
- #    echo -e "${color} Install Python ${nocolor}"
- #    yum install python36 gcc python3-devel -y &>>/tmp/roboshop.log
- #    stat_check $?
-
-
- -name: App Pre-requisites Setup
- ansible.builtin.import_tasks:
+- name: App Pre-requisites Setup
+  ansible.builtin.import_tasks:
    file: app_presetup.yml
 
-#    echo -e "${color} Install Application Dependencies ${nocolor}"
-#    cd /app
-#    pip3.6 install -r requirements.txt &>>/tmp/roboshop.log
-#    stat_check $?
-#
+- name: Download Maven Dependencies
+  ansible.builtin.shell: pip3.6 install -r requirements.txt
+  args:
+  chdir: /app
 
-   -name: SystemD Setup
-   ansible.builtin.import_tasks:
+- name: SystemD Setup
+  ansible.builtin.import_tasks:
     file: systemd_setup.yml

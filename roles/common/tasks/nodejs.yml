@@ -11,7 +11,7 @@
      ansible.builtin.pip:
          name: npm
 
-  - name: App Prerequisites
+  - name: App Pre-requisites
     ansible.builtin.import_tasks:
           file: app_presetup.yml
 

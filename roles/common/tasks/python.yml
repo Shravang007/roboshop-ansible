@@ -10,7 +10,7 @@
   ansible.builtin.import_tasks:
    file: app_presetup.yml
 
-- name: Download Maven Dependencies
+- name: Install Python Dependencies
   ansible.builtin.shell: pip3.6 install -r requirements.txt
   args:
   chdir: /app

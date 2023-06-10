@@ -1,4 +1,6 @@
-
+- name: mongodb schema setup
+  ansible.builtin.import_tasks:
+    file: mongodb_schema_setup.yml
 
 - name: Copy MongoDB Repo file
   ansible.builtin.copy:

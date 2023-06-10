@@ -10,4 +10,6 @@
 
 - name: Load Schema
   ansible.builtin.shell: mongo --host mongodb-dev.devopspractice73.online </app/schema/{{ component }}.js
+  args:
+    chdir: </app/schema/{{ component }}.js
 

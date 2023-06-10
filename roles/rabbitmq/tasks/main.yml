@@ -16,10 +16,13 @@
 
 - name: Add Rabbitmq Application User
   community.rabbitmq.rabbitmq_user:
-    user: rabbitmq
-    configure_priv: .*
-    read_priv: .*
-    write_priv: .*
+    user: roboshop
+    password: roboshop123
+    permissions:
+      - vhost: /
+        configure_priv: .*
+        read_priv: .*
+        write_priv: .*
     state: present
 
 #echo -e "${color} Configure Erlang Repos${nocolor}"

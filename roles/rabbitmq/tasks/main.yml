@@ -1,10 +1,8 @@
 - name: Configure Erlang Repos
-  ansible.builtin.uri:
-    url: https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
 
 - name: Configure RABBITMQ Repos
-  ansible.builtin.uri:
-    url: https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
 
 - name: Install RABBITMQ Server
   ansible.builtin.yum:

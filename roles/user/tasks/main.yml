@@ -8,9 +8,5 @@
     name: common
     tasks_from: mongodb_schema_setup
 
-- name: systemd setup
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: systemd_setup.yml
 
 

@@ -2,7 +2,3 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: nodejs
-
-- name: mongodb schema setup
-  ansible.builtin.import_tasks:
-   file: mongodb_schema_setup.yml

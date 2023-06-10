@@ -1,2 +1,2 @@
- component: user
- load_schema: true
+component: user
+load_schema: true

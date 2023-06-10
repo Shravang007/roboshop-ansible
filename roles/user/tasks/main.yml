@@ -2,6 +2,3 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: nodejs
-
-- name: Load Schema
-  ansible.builtin.shell: mongo --host mongodb-dev.devopspractice73.online </app/schema/{{ component }}.js

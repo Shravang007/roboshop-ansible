@@ -5,4 +5,4 @@
 
 - name: mongodb schema setup
   ansible.builtin.import_tasks:
-        file: mongodb_schema_setup.yml
+   file: mongodb_schema_setup.yml

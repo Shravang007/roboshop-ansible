@@ -35,7 +35,7 @@
     name: nginx
     enabled: true
 
-- name: Load NodeJS
+- name: Starting ELK
   ansible.builtin.import_role:
     name: elk
     tasks_from: filebeat

@@ -1,4 +1,7 @@
-tags:
+variable "tag" {
+}
+
+var.tags:
   - company_name
   - business
   - business_unit

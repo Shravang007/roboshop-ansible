@@ -1,4 +1,4 @@
-- name: Update Prometheus Configuration file
+- name: Update Prometheus Conf file
   ansible.builtin.template:
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml

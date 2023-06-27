@@ -35,7 +35,13 @@
     name: nginx
     enabled: true
 
-- name: Load NodeJs
+- name: Load ELK
   ansible.builtin.import_role:
     name: elk
     tasks_from: filebeat
+
+- name: Load Prometheus Node Exporter
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node-exporter
+

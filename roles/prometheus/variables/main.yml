@@ -1,3 +1,6 @@
+variable "tags" {
+}
+
 tags:
   - company_name
   - business

@@ -1,7 +1,4 @@
 variable "tags" {
-}
-
-tags:
   - company_name
   - business
   - business_unit
@@ -9,4 +6,7 @@ tags:
   - project_name
   - env
   - Name
+}
+
+
 

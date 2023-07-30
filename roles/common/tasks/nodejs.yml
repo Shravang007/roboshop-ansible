@@ -10,6 +10,7 @@
   ansible.builtin.import_tasks:
     file: app_presetup.yml
 
+# this step goes with CI
 #- name: Load NodeJS Dependencies
 #  ansible.builtin.shell: npm install
 #  args:
